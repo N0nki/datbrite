@@ -39,20 +39,20 @@ class BRITEParser:
     def _parse(self):
         state = 0
         for line in self.all_lines.splitlines():
-            splited = line.split()
-            if len(splited) == 0 or splited[0][0] == "#":
+            splitted = line.split()
+            if len(splitted) == 0 or splitted[0][0] == "#":
                 continue
             if state == 0:
-                if splited[0] == "Nodes:":
+                if splitted[0] == "Nodes:":
                     state = 1
             elif state == 1:
-                if splited[0] == "Edges:":
+                if splitted[0] == "Edges:":
                     state = 2
                 else:
-                    self.nodes.append(splited[0])
-                    self.coordinates.append({"index": splited[0], "latitude": splited[1], "longitude": splited[2]})
+                    self.nodes.append(splitted[0])
+                    self.coordinates.append({"index": splitted[0], "latitude": splitted[1], "longitude": splitted[2]})
             elif state == 2:
-                self.edges.append([splited[1], splited[2], splited[4], splited[5]])
+                self.edges.append([splitted[1], splitted[2], splitted[4], splitted[5]])
 
 def to_dat(britefile, output):
     """
