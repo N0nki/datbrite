@@ -66,9 +66,9 @@ def to_dat(britefile, output):
     datfile = open(output, "w+")
     datfile.write("/* {} */\n\n".format(output))
     # dk, m, n
-    datfile.write("param dk:=1\n")
-    datfile.write("param m:={}\n".format(len(traffic)-1))
-    datfile.write("param n:={}\n".format(len(nodes)-1))
+    datfile.write("param dk:=1;\n")
+    datfile.write("param m:={};\n".format(len(traffic)-1))
+    datfile.write("param n:={};\n".format(len(nodes)-1))
 
     # HOP
     datfile.write("\n/* HOP */\n")
